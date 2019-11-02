@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="14868" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch38"/>
+    <dependencies>
+        <deployment identifier="watchOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="14643"/>
+    </dependencies>
+    <scenes>
+        <!--Interface Controller-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="SunriseAPIDemo_WatchKit_App" customModuleProvider="target">
+                    <items>
+                        <label alignment="center" text="Time" id="mCH-zx-UzW"/>
+                        <separator width="50" alignment="center" id="UhX-QW-uBs">
+                            <color key="color" red="0.38823530080000002" green="0.85490196939999996" blue="0.21960784489999999" alpha="1" colorSpace="deviceRGB"/>
+                        </separator>
+                        <group width="1" alignment="left" id="gC9-9X-vcA">
+                            <items>
+                                <imageView width="32" height="32" alignment="left" verticalAlignment="center" image="sunrise" id="RZw-ky-WeN"/>
+                                <group width="1" alignment="left" layout="vertical" id="3gC-tT-iBV">
+                                    <items>
+                                        <label alignment="left" verticalAlignment="center" text="City Name" id="CFd-5J-4qx"/>
+                                        <group width="1" alignment="left" verticalAlignment="bottom" id="RMs-p3-nHe">
+                                            <items>
+                                                <imageView width="16" height="16" alignment="left" verticalAlignment="center" id="RyM-ct-yOb"/>
+                                                <label alignment="left" verticalAlignment="center" text="Temp" id="AlJ-oQ-RDY"/>
+                                            </items>
+                                        </group>
+                                    </items>
+                                </group>
+                            </items>
+                            <edgeInsets key="margins" left="0.0" right="0.0" top="5" bottom="0.0"/>
+                        </group>
+                        <group width="1" alignment="left" id="fSY-9j-f1g">
+                            <items>
+                                <imageView width="32" height="32" alignment="left" verticalAlignment="center" image="sunset" id="yjZ-Il-G2w"/>
+                                <group width="1" alignment="left" layout="vertical" id="gTR-BU-ciw">
+                                    <items>
+                                        <label alignment="left" verticalAlignment="center" text="Weather" id="Xms-lM-3LL"/>
+                                        <group width="1" alignment="left" verticalAlignment="bottom" id="bVT-QS-rbo">
+                                            <items>
+                                                <imageView width="16" height="16" alignment="left" verticalAlignment="center" id="OZk-96-Aed"/>
+                                                <label height="20" alignment="left" verticalAlignment="center" text="Wind" id="XT8-9v-Scm"/>
+                                            </items>
+                                        </group>
+                                    </items>
+                                </group>
+                            </items>
+                        </group>
+                        <button alignment="center" verticalAlignment="bottom" id="bfq-32-IdU">
+                            <group key="contentGroup" height="30" alignment="left" spacing="5" id="k9C-pP-kxW">
+                                <items>
+                                    <imageView width="16" height="16" alignment="left" verticalAlignment="center" image="settings-light" id="L4v-mi-Kgj"/>
+                                    <label alignment="center" verticalAlignment="center" text="Change City" id="cUr-UK-yx0">
+                                        <fontDescription key="font" name="ArialHebrew-Bold" family="Arial Hebrew" pointSize="13"/>
+                                    </label>
+                                </items>
+                                <color key="backgroundColor" red="0.1756665687" green="0.1756665687" blue="0.1756665687" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <edgeInsets key="margins" left="7" right="7" top="0.0" bottom="0.0"/>
+                            </group>
+                            <connections>
+                                <segue destination="vT8-CX-XyJ" kind="push" identifier="sequeA" id="VeE-7r-UB1"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <connections>
+                        <outlet property="cityNameLabel" destination="CFd-5J-4qx" id="rT6-bS-sqw"/>
+                        <outlet property="cityTime" destination="mCH-zx-UzW" id="Gxv-M4-PmV"/>
+                        <outlet property="descLabel" destination="Xms-lM-3LL" id="SsU-Kq-ZgW"/>
+                        <outlet property="temp" destination="AlJ-oQ-RDY" id="dPX-2k-8L3"/>
+                        <outlet property="windLabel" destination="XT8-9v-Scm" id="7uB-K3-9A9"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="34" y="36"/>
+        </scene>
+        <!--City Settings Interface Controller-->
+        <scene sceneID="voa-sV-QxS">
+            <objects>
+                <controller id="vT8-CX-XyJ" customClass="CitySettingsInterfaceController" customModule="SunriseAPIDemo_WatchKit_Extension">
+                    <items>
+                        <button width="1" alignment="left" title="Select City" id="AUp-wr-0EL">
+                            <connections>
+                                <action selector="selectCityPressed" destination="vT8-CX-XyJ" id="pKa-A8-bkE"/>
+                            </connections>
+                        </button>
+                        <label alignment="left" text="Current City:" id="Vf6-ut-TzL"/>
+                        <label alignment="left" text="Saved City Label" id="oeI-px-fnf"/>
+                        <button alignment="center" verticalAlignment="bottom" id="R9F-Ti-vhs">
+                            <group key="contentGroup" width="1" alignment="left" spacing="10" id="DOX-Eo-Teu">
+                                <items>
+                                    <imageView width="32" height="32" alignment="left" id="evV-lr-EZs"/>
+                                    <label alignment="left" verticalAlignment="center" text="Save" id="acI-tI-2oG"/>
+                                </items>
+                                <edgeInsets key="margins" left="7" right="7" top="5" bottom="5"/>
+                            </group>
+                            <connections>
+                                <action selector="saveButtonPressed" destination="vT8-CX-XyJ" id="CBh-nS-XQL"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <connections>
+                        <outlet property="loadingImage" destination="evV-lr-EZs" id="PBw-FS-fjg"/>
+                        <outlet property="saveButtonLabel" destination="acI-tI-2oG" id="NXk-A8-0MP"/>
+                        <outlet property="savedCityLabel" destination="oeI-px-fnf" id="uwV-Gm-3aD"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="335" y="36"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="settings-light" width="480" height="480"/>
+        <image name="sunrise" width="512" height="512"/>
+        <image name="sunset" width="512" height="512"/>
+    </resources>
+</document>
