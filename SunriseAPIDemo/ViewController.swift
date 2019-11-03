@@ -14,7 +14,7 @@ import Particle_SDK
 class ViewController: UIViewController {
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var resultsLabel: UILabel!
-    var seconds = 0
+       var seconds = 0
        var timer = Timer()
        
     // MARK: User variables
@@ -27,13 +27,19 @@ class ViewController: UIViewController {
 
     let APIID = "d2c0d622cb9de74c46c1ca58f2317c8f"
     
-    override func viewDidLoad() {
+    
+    
+    var preception:JSON = [];
+    var temperature:JSON = [];
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
         runTimer()
         AF.request("https://samples.openweathermap.org/data/2.5/weather?q=London,uk&appid=\(APIID)").responseJSON {
 
                    (xyz) in
-                   print(xyz.value)
+                   print("xyz is: \(xyz.value)")
+            
 
                    // convert the response to a JSON object
                    let x = JSON(xyz.value)
@@ -44,6 +50,12 @@ class ViewController: UIViewController {
                 print("---------------------------------------------------------")
                
                 let description = x["weather"]
+            self.preception = x["clouds"]["all"]
+            print("precesption is : \(self.preception)")
+            
+            self.temperature = x["main"]["temp"]
+            print("Temperature is : \(self.temperature)")
+            
                       
                           let d = x["main"]["temp_max"]
                           let desc = description[0]["description"]
@@ -262,14 +274,14 @@ class ViewController: UIViewController {
                           if (choice == "A") {
                             print("pressed aaaaaa")
 
-                            self.hourCall(hour: self.hour)
+                            self.temperature(temp: "\(self.temperature)")
 //                              self.gameScore = self.gameScore + 1;
 
                           }
 
                           else if (choice == "B") {
 
-                            self.minCall(min: self.min)
+                            self.percepitation(precep: "\(self.preception)")
 
                           }
 
@@ -332,5 +344,46 @@ class ViewController: UIViewController {
         //var bytesToReceive : Int64 = task.countOfBytesExpectedToReceive
         
     }
+    
+    
+    func temperature(temp : String) {
+        
+        print("In temperature")
+        
+        let parameters = ["\(temp)"]
+        var task = myPhoton!.callFunction("temp", withArguments: parameters) {
+            (resultCode : NSNumber?, error : Error?) -> Void in
+            if (error == nil) {
+                print("Sent message to Particle to show temperature")
+            }
+            else {
+                print("Error when telling Particle to show temperature")
+            }
+        }
+        //var bytesToReceive : Int64 = task.countOfBytesExpectedToReceive
+        
+    }
+    
+    
+    func percepitation(precep : String) {
+        
+        print("In perception")
+        
+        let parameters = ["\(precep)"]
+        var task = myPhoton!.callFunction("precep", withArguments: parameters) {
+            (resultCode : NSNumber?, error : Error?) -> Void in
+            if (error == nil) {
+                print("Sent message to Particle to show perception")
+            }
+            else {
+                print("Error when telling Particle to show perception")
+            }
+        }
+        //var bytesToReceive : Int64 = task.countOfBytesExpectedToReceive
+        
+    }
+    
+    
+    
 }
 
