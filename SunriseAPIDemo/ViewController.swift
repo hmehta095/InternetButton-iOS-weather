@@ -203,6 +203,7 @@ class ViewController: UIViewController {
                                 print("----------------------")
                             
                                 var str1 = "\(strArray[1])"
+                                print("zzzzz\(str1)")
                                 if str1.isEmpty{
                                     return
                                 }
@@ -210,15 +211,19 @@ class ViewController: UIViewController {
                                    var strArray1 = str1.components(separatedBy: ".")
                                    print("----------------------")
                                    print(strArray1[0])
-                                                                 print(strArray1[1])
+                                    print(strArray1[1])
                                print("----------------------")
                                 self.timeLabel.text = "\(strArray1[0])"
                                 var splitTime = strArray1[0].components(separatedBy: ":")
                                
+                                print("xxxxxxx\(splitTime)")
+                                
+                                
                                 self.hour = splitTime[0]
                                 self.min = splitTime[1]
                                 self.sec = splitTime[2]
                                 print(" Time after split is \(self.hour): \(self.min) : \(self.sec)")
+                                //real time call
                                 self.hourCall(hour: self.hour)
                                 self.minCall(min: self.min)
                                 self.secondCall(sec: self.sec)
