@@ -58,56 +58,106 @@ int hours(String cmd){
     int hr = cmd.toInt();
     // button.allLedsOff();
     
-    if(hr == 1 || hr == 13){
+    if(hr == 1){
       button.ledOff(12);  
       button.ledOn(1,25,0,0);   
     }
-    if(hr == 2 || hr == 14){
+    if(hr == 2){
       button.ledOff(1);  
       button.ledOn(2,25,0,0);   
     }
-    if(hr == 3 || hr == 15){
+    if(hr == 3){
       button.ledOff(2);  
       button.ledOn(3,25,0,0);   
     }
-    if(hr == 4 || hr == 16){
+    if(hr == 4 ){
       button.ledOff(3);  
       button.ledOn(4,25,0,0);   
     }
-    if(hr == 5 || hr == 17){
+    if(hr == 5){
       button.ledOff(4);  
       button.ledOn(5,25,0,0);   
     }
-    if(hr == 6 || hr == 18){
+    if(hr == 6){
       button.ledOff(5);  
       button.ledOn(6,25,0,0);   
     }
-    if(hr == 7 || hr == 19){
+    if(hr == 7){
       button.ledOff(6);  
       button.ledOn(7,25,0,0);   
     }
-    if(hr == 8 || hr == 20){
+    if(hr == 8){
       button.ledOff(7);  
       button.ledOn(8,25,0,0);   
     }
-    if(hr == 9 || hr == 21){
+    if(hr == 9 ){
       button.ledOff(8);  
       button.ledOn(9,25,0,0);   
     }
-    if(hr == 10 || hr == 22){
+    if(hr == 10 ){
       button.ledOff(9);  
       button.ledOn(10,25,0,0);   
     }
-    if(hr == 11 || hr == 23){
+    if(hr == 11){
       button.ledOff(10);  
       button.ledOn(11,25,0,0);   
     }
-    if(hr == 12 || hr == 24){
+    if(hr == 12 ){
       button.ledOff(11);  
       button.ledOn(12,25,0,0);   
     }
     
     
+    
+    
+    if(hr == 13){
+      button.ledOff(12);  
+      button.ledOn(1,165,42,42);   
+    }
+    if(hr == 14){
+      button.ledOff(1);  
+      button.ledOn(2,165,42,42);   
+    }
+    if(hr == 15){
+      button.ledOff(2);  
+      button.ledOn(3,165,42,42);    
+    }
+    if(hr == 16){
+      button.ledOff(3);  
+      button.ledOn(4,165,42,42);    
+    }
+    if(hr == 17){
+      button.ledOff(4);  
+      button.ledOn(5,165,42,42);    
+    }
+    if(hr == 18){
+      button.ledOff(5);  
+      button.ledOn(6,165,42,42);    
+    }
+    if(hr == 19){
+      button.ledOff(6);  
+      button.ledOn(7,165,42,42);    
+    }
+    if(hr == 20){
+      button.ledOff(7);  
+      button.ledOn(8,165,42,42);    
+    }
+    if(hr == 21){
+      button.ledOff(8);  
+      button.ledOn(9,165,42,42);    
+    }
+    if(hr == 22){
+      button.ledOff(9);  
+      button.ledOn(10,165,42,42);  
+    }
+    if(hr == 23){
+      button.ledOff(10);  
+      button.ledOn(11,165,42,42);
+    }
+    if(hr == 00){
+      button.ledOff(11);  
+      button.ledOn(12,165,42,42);   
+    }
     
     
     
@@ -246,16 +296,7 @@ void loop() {
       Particle.publish("playerChoice","B",60,PRIVATE);
       delay(DELAY);
   }
-  if(button.buttonOn(3)){
-      //Next question
-      Particle.publish("playerChoice","true",60,PRIVATE);
-      delay(DELAY);
-  }
-  if(button.buttonOn(1)){
-     
-      Particle.publish("playerChoice","C",60,PRIVATE);
-      delay(DELAY);
-  }
+
 
 
 
